@@ -37,7 +37,7 @@ return {
             require('rose-pine').setup({
                 disable_background = true,
                 styles = {
-                    italic = false,
+                    italic = false
                 },
             })
 
@@ -47,5 +47,47 @@ return {
         end
     },
 
+    {
+        'ramojus/mellifluous.nvim',
+        name = "mellifluous",
+        -- version = "v0.*", -- uncomment for stable config (some features might be missed if/when v1 comes out)
+        config = function()
+            require'mellifluous'.setup({
+                styles = {
+                    comments = { italic = false },
+                },
+                transparent_background = {
+                    enabled = false,
+                    floating_windows = true,
+                    telescope = true,
+                    file_tree = true,
+                    cursor_line = true,
+                    status_line = false,
+                },
+                plugins = {
+                    cmp = true,
+                    gitsigns = true,
+                    indent_blankline = true,
+                    nvim_tree = {
+                        enabled = true,
+                        show_root = false,
+                    },
+                    neo_tree = {
+                        enabled = true,
+                    },
+                    telescope = {
+                        enabled = true,
+                    },
+                    startify = true,
+                },
+            }) -- optional, see configuration section.
+            vim.cmd('colorscheme mellifluous')
+
+            ColorMyPencils()
+        end
+    },
+    {
+        "ellisonleao/gruvbox.nvim"
+    },
 
 }
